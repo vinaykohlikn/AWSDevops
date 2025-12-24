@@ -1,0 +1,34 @@
+######################  RDS  ##################################
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html#CHAP_GettingStarted.Connecting.MySQL
+
+sudo dnf install mariadb105
+mysql -h endpoint -P 3306 -u admin -p
+
+####################  Redis  ################################
+Installation of redis
+1. https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-connecting.html
+
+sudo yum install gcc
+wget https://github.com/valkey-io/valkey/archive/refs/tags/8.1.2.tar.gz
+tar xvzf 8.1.3.tar.gz
+cd valkey-8.1.3
+make distclean      # ubuntu systems only
+make
+
+Connection to DB
+https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/GettingStarted.ConnectToCacheNode.html
+
+src/redis-cli -h configuration-endpoint
+(remove 6379)
+
+###################### Valkey (New Documentation)############################
+
+sudo yum install gcc
+wget https://github.com/valkey-io/valkey/archive/refs/tags/7.2.6.tar.gz
+mv 7.2.6.tar.gz valkey-7.2.6.tar.gz
+tar xvzf valkey-7.2.6.tar.gz
+cd valkey-7.2.6
+make
+src/valkey-cli -c -h mycachecluster.eaogs8.0001.usw2.cache.amazonaws.com
+(remove 6379)
